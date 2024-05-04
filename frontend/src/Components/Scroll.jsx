@@ -37,7 +37,7 @@ function Scroll() {
 					width: "40px",
 					position: "fixed",
 					bottom: "20px",
-					right: "50%",
+					right: "48%",
 					display: isVisible ? "block" : "none",
 					zIndex: "1000",
 					borderRadius: "40px",

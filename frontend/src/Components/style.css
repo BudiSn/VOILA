@@ -53,9 +53,20 @@
 	background-color: #fefbf5;
 }
 
+.bg-account {
+	background-image: url("../assets/Images/BG.jpg");
+}
 .footer {
 	background-color: var(--backgournd);
 	opacity: 100%;
 	height: 200px;
 	margin-top: -2px;
+}
+
+.login {
+	width: 500px;
+}
+
+.fs-7 {
+	font-size: 17px;
 }

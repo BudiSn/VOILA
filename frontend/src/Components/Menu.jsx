@@ -16,10 +16,7 @@ function Menu() {
 	return (
 		<div id="menu" className="container-fluid px-5">
 			<div className="d-flex justify-content-between">
-				<h2 className="">Menu Terlaris</h2>
-				<button className="btn btn-transparant px-3 rounded-0 border fw-bold">
-					Semua Menu
-				</button>
+				<h2>Menu Terlaris</h2>
 			</div>
 			<div className="row pt-4 justify-content-center">
 				<Food Image={Spageti} Name="Spageti" Price="Rp 25.000" />

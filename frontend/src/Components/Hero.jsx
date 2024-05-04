@@ -4,7 +4,7 @@ import Heros from "../assets/Images/Heros.png";
 function Hero() {
 	return (
 		<div>
-			<div className="container-fluid px-5 pt-3 hero-container">
+			<div className="container-fluid px-3 pt-3 hero-container">
 				<div className="row flex-lg-row-reverse align-items-center g-5">
 					<div className="col-10 col-sm-8 col-lg-5">
 						<img
@@ -29,18 +29,13 @@ function Hero() {
 							Café Voila tak terlupakan. Voila!☕
 						</p>
 						<div className="d-grid gap-2 d-md-flex pt-4 justify-content-md-start">
-							<button
+							<a
+								href="#menu"
 								type="button"
 								className="btn btn-warning btn-lg px-4 me-md-2 rounded-5"
 							>
 								Shop Your Food
-							</button>
-							<button
-								type="button"
-								className="btn btn-light btn-lg px-4 rounded-5"
-							>
-								Shop All Food
-							</button>
+							</a>
 						</div>
 					</div>
 				</div>

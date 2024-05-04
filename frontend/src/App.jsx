@@ -1,23 +1,25 @@
-// import { useState } from "react";
-// import Navbar from "./Components/Navbar";
-// import Hero from "./Components/Hero";
-// import Delivery from "./Components/Delivery";
-// import Tasty from "./Components/Tasty";
-// import Drink from "./Components/Drink";
-// import Food from "./Components/Food";
-// import Menu from "./Components/Menu";
-// import Footer from "./Components/Footer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./Components/style.css";
 import "./Components/main.js";
+import Login from "./Components/Login";
+import SignUp from "./Components/SignUp";
 import Home from "./Components/Home";
+import Carts from "./Components/Carts";
 
 function App() {
 	return (
-		<>
-			<Home />
-		</>
+		<div>
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<Home />}></Route>
+					<Route path="/login" element={<Login />}></Route>
+					<Route path="/signup" element={<SignUp />}></Route>
+					<Route path="/cart" element={<Carts />}></Route>
+				</Routes>
+			</BrowserRouter>
+		</div>
 	);
 }
 

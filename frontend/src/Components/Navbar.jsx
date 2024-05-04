@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "../assets/Images/Logo.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 	return (
@@ -13,7 +14,7 @@ const Navbar = () => {
 				</a>
 				<ul className="nav col-sm-8 col-12 col-md-auto mb-2 justify-content-center mb-md-0">
 					<li className="mx-2">
-						<a href="#" className="nav-link px-2 warna">
+						<a href="" className="nav-link px-2 warna">
 							Home
 						</a>
 					</li>
@@ -28,21 +29,19 @@ const Navbar = () => {
 						</a>
 					</li>
 					<li className="mx-2">
-						<a href="#menu" className="nav-link px-2 warna">
-							Makanan
-						</a>
+						<Link to="/cart" className="nav-link px-2 warna">
+							Keranjang
+						</Link>
 					</li>
 				</ul>
 
-				<div className="col-sm-2 col-md-3 text-end">
-					{/* <i className="bi bi-search fs-3 me-3"></i>
-					<i className="bi bi-cart2 fs-3 s">o</i> */}
-					<button type="button" className="btn py-2  bg-login me-3">
+				<div className="col-sm-2 col-md-2 text-end">
+					<Link to="/login" className="btn py-2 my-1 mx-1 fw-bold bg-login">
 						Login
-					</button>
-					<button type="button" className="btn py-2 fw-bold bg-login">
+					</Link>
+					<Link to="/signup" className="btn py-2 my-1 mx-1 fw-bold bg-login">
 						Sign-up
-					</button>
+					</Link>
 				</div>
 			</header>
 		</div>
