@@ -36,11 +36,10 @@ const Navbar = () => {
 				</ul>
 
 				<div className="col-sm-2 col-md-2 text-end">
-					<Link to="/login" className="btn py-2 my-1 mx-1 fw-bold bg-login">
-						Login
-					</Link>
-					<Link to="/signup" className="btn py-2 my-1 mx-1 fw-bold bg-login">
-						Sign-up
+					<Link to="/login" className="btn py-2 mx-4 fw-bold bg-login">
+						<i class="bi bi-person-circle">
+							<br></br>Login
+						</i>
 					</Link>
 				</div>
 			</header>

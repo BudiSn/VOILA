@@ -6,18 +6,6 @@ function Footer() {
 	const tooglePopUp = () => {
 		setShowPopUp(!showPopUp);
 	};
-	// // Buat state untuk mengontrol apakah modal ditampilkan atau tidak
-	// const [showModal, setShowModal] = useState(false);
-
-	// // Fungsi untuk menampilkan modal
-	// const handleShowModal = () => {
-	// 	setShowModal(true);
-	// };
-
-	// // Fungsi untuk menyembunyikan modal
-	// const handleCloseModal = () => {
-	// 	setShowModal(false);
-	// };
 
 	return (
 		<div id="footer">
@@ -50,7 +38,7 @@ function Footer() {
 							Menu
 						</a>
 					</li>
-					<li className="nav-item">
+					{/* <li className="nav-item">
 						<span
 							className="nav-link px-2 text-muted"
 							type="button"
@@ -59,7 +47,7 @@ function Footer() {
 							Contact
 						</span>
 
-						{/* <div
+						<div
 							className={`modal fade ${showModal ? "show" : ""}`}
 							id="exampleModalCenter"
 							tabindex="-1"
@@ -89,8 +77,8 @@ function Footer() {
 									<div class="modal-body">...</div>
 								</div>
 							</div>
-						</div> */}
-					</li>
+						</div>
+					</li> */}
 				</ul>
 				<p className="text-center text-muted">
 					&copy; 2024 VOILA COFFEE by G r i m
