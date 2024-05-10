@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const harga = 15000;
 
 function Carts() {
 	return (
@@ -11,33 +10,16 @@ function Carts() {
 			>
 				<Link
 					to="/"
-					style={{ fontSize: "5vh", paddingLeft: "2vh", color: "#a6976d" }}
+					style={{ fontSize: "5vh", paddingLeft: "2vh", color: "#7A7052" }}
 					className="bi bi-arrow-left-circle text-decoration-none col-1"
 				></Link>
 				<p
-					style={{ fontSize: "5vh", paddingLeft: "2vh", color: "#a6976d" }}
+					style={{ fontSize: "5vh", paddingTop: "10px", color: "#7A7052" }}
 					className="col-1"
 				>
 					Keranjang
 				</p>
 			</div>
-
-			<table>
-				<thead>
-					<tr>
-						<th>Nama</th>
-						<th>Harga</th>
-						<th>Jumlah</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Nasi Goreng</td>
-						<td>Rp {harga}</td>
-						<td>3</td>
-					</tr>
-				</tbody>
-			</table>
 
 			<div
 				className="py-auto"
