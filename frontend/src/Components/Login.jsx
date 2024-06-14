@@ -1,11 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../assets/Images/Logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Login() {
+	const [email, setEmail] = useState("");
+	const [pass, setPass] = useState("");
+	const [error, setError] = useState(null);
+	const history = useNavigate();
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		try {
+			const response = await axios.post("http://localhost:3001/login", {
+				email,
+				pass,
+			});
+
+			if (response.data.message === "Login successful") {
+				// Handle successful login
+				history("/");
+			} else {
+				setError("Invalid credentials");
+			}
+		} catch (error) {
+			setError("Internal server error");
+			console.error(error);
+		}
+	};
+
 	return (
 		<div className="bg-account">
-			<div className="d-flex ">
+			<div className="d-flex">
 				<Link
 					to="/"
 					style={{
@@ -27,8 +53,10 @@ function Login() {
 					alt="Voila Cafe"
 					className="mb-2"
 				/>
-				<form className="form-signin">
-					<h1 class="h3 mb-5 fw-normal display-4 text-center">Login Account</h1>
+				<form className="form-signin" onSubmit={handleSubmit}>
+					<h1 className="h3 mb-5 fw-normal display-4 text-center">
+						Login Account
+					</h1>
 					<label htmlFor="email" className="fs-7 py-1">
 						Email address
 					</label>
@@ -39,6 +67,8 @@ function Login() {
 						placeholder="Email Address"
 						required
 						autoFocus
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
 					/>
 					<label htmlFor="pass" className="sr-only fs-7 py-1">
 						Password
@@ -49,18 +79,25 @@ function Login() {
 						className="form-control"
 						placeholder="Password"
 						required
+						value={pass}
+						onChange={(e) => setPass(e.target.value)}
 					/>
 					<div className="mt-5 mb-5">
 						<p>
-							Don't have an account? <a href="/signup">Create Account</a>
+							Don't have an account? <Link to="/signup">Create Account</Link>
 						</p>
 					</div>
 					<div className="text-center">
-						<button class="btn btn-lg btn-primary btn-block" type="submit">
+						<button className="btn btn-lg btn-primary btn-block" type="submit">
 							Sign in
 						</button>
 					</div>
 				</form>
+				{error && (
+					<div className="alert alert-danger mt-3" role="alert">
+						{error}
+					</div>
+				)}
 			</main>
 		</div>
 	);

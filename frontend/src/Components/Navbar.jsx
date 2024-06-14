@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Logo from "../assets/Images/Logo.png";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+	// const isAdmin = currentUser && currentUser.email === "admin@gmail.com";
+
 	return (
 		<div className=" container-fluid pt-1 px-5 header">
 			<header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-2  border-bottom border-dark">
@@ -33,6 +35,7 @@ const Navbar = () => {
 							Keranjang
 						</Link>
 					</li>
+
 					<li className="mx-2">
 						<Link to="/history" className="nav-link px-2 warna">
 							History

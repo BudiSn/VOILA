@@ -35,11 +35,25 @@ app.get("/cart", (req, res) => {
 		.catch((err) => res.json(err));
 });
 
-app.post("/createUser", (req, res) => {
-	UserModel.create(req.body)
-		.then((users) => res.json(users))
-		.catch((err) => res.json(err));
+app.post("/createUser", async (req, res) => {
+	const { email, nama, pass } = req.body;
+
+	try {
+		// Cek apakah user sudah terdaftar berdasarkan email
+		const existingUser = await UserModel.findOne({ email });
+
+		if (existingUser) {
+			return res.status(400).json({ error: "User already exists" });
+		}
+
+		// Jika user belum terdaftar, buat akun baru
+		const newUser = await UserModel.create({ email, nama, pass });
+		res.json(newUser);
+	} catch (error) {
+		res.status(500).json({ error: "Internal server error" });
+	}
 });
+
 app.delete("/cart", (req, res) => {
 	CartModel.deleteMany({})
 		.then(() => res.json({ message: "Semua Item Telah Terhapus" }))
@@ -76,6 +90,24 @@ app.get("/history", (req, res) => {
 	HistoryModel.find({})
 		.then((food) => res.json(food))
 		.catch((err) => res.json(err));
+});
+
+app.post("/login", async (req, res) => {
+	const { email, pass } = req.body;
+
+	try {
+		// Cari pengguna berdasarkan email dan password
+		const user = await UserModel.findOne({ email, pass });
+
+		if (!user) {
+			return res.status(404).json({ error: "Invalid credentials" });
+		}
+
+		// Jika login berhasil
+		res.json({ message: "Login successful", user });
+	} catch (error) {
+		res.status(500).json({ error: "Internal server error" });
+	}
 });
 app.listen(3001, () => {
 	console.log("Server terhubung");
