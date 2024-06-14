@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../assets/Images/Logo.png";
 import { Link } from "react-router-dom";
+import axios from "axios";
 function SignUp() {
+	const [email, setEmail] = useState();
+	const [nama, setNama] = useState();
+	const [pass, setPass] = useState();
+
+	const Submit = (e) => {
+		e.preventDefault();
+		axios
+			.post("http://localhost:3001/createUser", { email, nama, pass })
+			.then((result) => console.log(result))
+			.catch((err) => console.log(err));
+	};
 	return (
 		<div className=" bg-account">
 			<div className="d-flex ">
@@ -26,7 +38,7 @@ function SignUp() {
 					alt="Voila Cafe"
 					className="mb-2"
 				/>
-				<form className="form-signin">
+				<form className="form-signin" onSubmit={Submit}>
 					<h1 class="h3 mb-5 fw-normal display-4 text-center">
 						Create Account
 					</h1>
@@ -40,6 +52,7 @@ function SignUp() {
 						placeholder="Email Address"
 						required
 						autoFocus
+						onChange={(e) => setEmail(e.target.value)}
 					/>
 					<label htmlFor="name" className="sr-only fs-7 py-1">
 						Username
@@ -50,6 +63,7 @@ function SignUp() {
 						className="form-control mb-2"
 						placeholder="Username"
 						required
+						onChange={(e) => setNama(e.target.value)}
 					/>
 					<label htmlFor="pass" className="sr-only fs-7 py-1">
 						Password
@@ -60,6 +74,7 @@ function SignUp() {
 						className="form-control mb-2"
 						placeholder="Password"
 						required
+						onChange={(e) => setPass(e.target.value)}
 					/>
 					<div className="mt-5 mb-5">
 						<p>

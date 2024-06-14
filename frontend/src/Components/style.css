@@ -70,3 +70,26 @@
 .fs-7 {
 	font-size: 17px;
 }
+
+/* Add this CSS to your styles file or within a <style> tag */
+.table-custom {
+	border-collapse: collapse;
+	border: 1px solid #9b9c9d; /* Border around the table */
+}
+
+.table-custom th,
+.table-custom td {
+	border: 1px solid #9b9c9d;
+}
+
+.table-custom thead th {
+	border-bottom: 1px solid #9b9c9d; /* Border at the bottom of header cells */
+}
+
+.table-custom tbody tr {
+	border-bottom: 1px solid #9b9c9d; /* Border between rows */
+}
+
+.table-custom tbody tr:last-child {
+	border-bottom: none;
+}

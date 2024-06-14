@@ -4,7 +4,7 @@ import Heros from "../assets/Images/Heros.png";
 function Hero() {
 	return (
 		<div>
-			<div className="container-fluid px-3 pt-3 hero-container">
+			<div className="container-fluid px-5 pt-3 hero-container">
 				<div className="row flex-lg-row-reverse align-items-center g-5">
 					<div className="col-10 col-sm-8 col-lg-5">
 						<img

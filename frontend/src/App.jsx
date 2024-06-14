@@ -6,7 +6,8 @@ import "./Components/main.js";
 import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
 import Home from "./Components/Home";
-import Carts from "./Components/Carts";
+import Cart from "./Components/Cart";
+import History from "./Components/History.jsx";
 
 function App() {
 	return (
@@ -16,7 +17,8 @@ function App() {
 					<Route path="/" element={<Home />}></Route>
 					<Route path="/login" element={<Login />}></Route>
 					<Route path="/signup" element={<SignUp />}></Route>
-					<Route path="/cart" element={<Carts />}></Route>
+					<Route path="/cart" element={<Cart />}></Route>
+					<Route path="/history" element={<History />}></Route>
 				</Routes>
 			</BrowserRouter>
 		</div>

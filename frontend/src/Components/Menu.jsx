@@ -19,16 +19,21 @@ function Menu() {
 				<h2>Menu Terlaris</h2>
 			</div>
 			<div className="row pt-4 justify-content-center">
-				<Food Image={Spageti} Name="Spageti" Price="Rp 25.000" />
-				<Food Image={DarkChoco} Name="Dark Choco" Price="Rp 12.000" />
-				<Food Image={NasiGoreng} Name="Nasi Goreng" Price="Rp 18.000" />
-				<Food Image={Expresso} Name="Expresso" Price="Rp 13.000" />
-				<Food Image={RiceBowl} Name="Rice Bowl" Price="Rp 22.000" />
-				<Food Image={LemonTea} Name="Lemon Tea" Price="Rp 8.000" />
-				<Food Image={Caramel} Name="Caramel" Price="Rp 12.000" />
-				<Food Image={MieRebus} Name="Mie Rebus" Price="Rp 15.000" />
-				<Food Image={LycheeTea} Name="Lychee Tea" Price="Rp 15.000" />
-				<Food Image={MieGoreng} Name="Mie Goreng" Price="Rp 15.000" />
+				<Food Code="101" Image={Spageti} Name="Spageti" Price={"25.000"} />
+				<Food Code="201" Image={DarkChoco} Name="Dark Choco" Price={"12.000"} />
+				<Food
+					Code="102"
+					Image={NasiGoreng}
+					Name="Nasi Goreng"
+					Price={"18.000"}
+				/>
+				<Food Code="202" Image={Expresso} Name="Expresso" Price={"13.000"} />
+				<Food Code="103" Image={RiceBowl} Name="Rice Bowl" Price={"22.000"} />
+				<Food Code="203" Image={LemonTea} Name="Lemon Tea" Price={"8.000"} />
+				<Food Code="205" Image={Caramel} Name="Caramel" Price={"12.000"} />
+				<Food Code="104" Image={MieRebus} Name="Mie Rebus" Price={"15.000"} />
+				<Food Code="206" Image={LycheeTea} Name="Lychee Tea" Price={"15.000"} />
+				<Food Code="105" Image={MieGoreng} Name="Mie Goreng" Price={"15.000"} />
 			</div>
 		</div>
 	);

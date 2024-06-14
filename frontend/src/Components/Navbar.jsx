@@ -8,11 +8,11 @@ const Navbar = () => {
 			<header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-2  border-bottom border-dark">
 				<a
 					href="/"
-					className="d-flex align-items-center col-md-3 col-sm-2 mb-sm-0 mb-2 mb-md-0 text-dark text-decoration-none"
+					className="d-flex col-md-2 col-sm-2 mb-2 text-dark text-decoration-none"
 				>
 					<img src={Logo} alt="" className="w-25 h-25" />
 				</a>
-				<ul className="nav col-sm-8 col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+				<ul className="nav col-sm-8 col-12 col-md-8 mb-2 justify-content-center mb-md-0">
 					<li className="mx-2">
 						<a href="" className="nav-link px-2 warna">
 							Home
@@ -31,6 +31,11 @@ const Navbar = () => {
 					<li className="mx-2">
 						<Link to="/cart" className="nav-link px-2 warna">
 							Keranjang
+						</Link>
+					</li>
+					<li className="mx-2">
+						<Link to="/history" className="nav-link px-2 warna">
+							History
 						</Link>
 					</li>
 				</ul>
