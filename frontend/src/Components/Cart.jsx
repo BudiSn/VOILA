@@ -19,7 +19,7 @@ function Cart() {
 	};
 	const handleCheckout = () => {
 		axios
-			.post("http://localhost:3001/history")
+			.post("http://localhost:3001/order")
 			.then((response) => {
 				console.log(response.data);
 				setFoods([]);

@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-function History() {
-	const [historyData, setHistoryData] = useState([]);
+function Order() {
+	const [orderData, setOrderData] = useState([]);
 
 	useEffect(() => {
 		axios
-			.get("http://localhost:3001/history")
+			.get("http://localhost:3001/order")
 			.then((result) => {
-				console.log("Response Data: ", result.data); // Logging untuk debug
-				setHistoryData(result.data);
+				console.log("Response Data: ", result.data);
+				setOrderData(result.data);
 			})
 			.catch((err) => console.log("Error: ", err));
 	}, []);
@@ -34,10 +34,10 @@ function History() {
 					}}
 					className="col-1"
 				>
-					History
+					Orderan
 				</p>
 			</div>
-			<div className="container-fluid px-5">
+			<div className="container-fluid pt-2 px-5">
 				<table className="table text-center fs-5 table-custom">
 					<thead className="fs-4">
 						<tr>
@@ -50,15 +50,15 @@ function History() {
 						</tr>
 					</thead>
 					<tbody>
-						{historyData.map((history, historyIndex) =>
-							history.items.map((item, itemIndex) => (
-								<tr key={history._id + "-" + item.kode + "-" + itemIndex}>
+						{orderData.map((order, orderIndex) =>
+							order.items.map((item, itemIndex) => (
+								<tr key={order._id + "-" + item.kode + "-" + itemIndex}>
 									{itemIndex === 0 && (
 										<td
 											className="py-4 align-middle"
-											rowSpan={history.items.length}
+											rowSpan={order.items.length}
 										>
-											{historyIndex + 1}
+											{orderIndex + 1}
 										</td>
 									)}
 									<td className="py-4">{item.nama}</td>
@@ -68,9 +68,9 @@ function History() {
 									{itemIndex === 0 && (
 										<td
 											className="py-4 align-middle text-center"
-											rowSpan={history.items.length}
+											rowSpan={order.items.length}
 										>
-											Rp {history.totalPrice}
+											Rp {order.totalPrice}
 										</td>
 									)}
 								</tr>
@@ -83,4 +83,4 @@ function History() {
 	);
 }
 
-export default History;
+export default Order;

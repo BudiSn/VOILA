@@ -7,7 +7,7 @@ function Login() {
 	const [email, setEmail] = useState("");
 	const [pass, setPass] = useState("");
 	const [error, setError] = useState(null);
-	const history = useNavigate();
+	const navigate = useNavigate();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -18,17 +18,16 @@ function Login() {
 			});
 
 			if (response.data.message === "Login successful") {
-				// Handle successful login
-				history("/");
+				localStorage.setItem("userEmail", email); // Simpan email ke localStorage
+				navigate("/");
 			} else {
-				setError("Invalid credentials");
+				setError("Password yang dimasukkan salah");
 			}
 		} catch (error) {
 			setError("Internal server error");
 			console.error(error);
 		}
 	};
-
 	return (
 		<div className="bg-account">
 			<div className="d-flex">
@@ -84,7 +83,7 @@ function Login() {
 					/>
 					<div className="mt-5 mb-5">
 						<p>
-							Don't have an account? <Link to="/signup">Create Account</Link>
+							Don't have an account? <Link to="/create">Create Account</Link>
 						</p>
 					</div>
 					<div className="text-center">
@@ -102,5 +101,4 @@ function Login() {
 		</div>
 	);
 }
-
 export default Login;

@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import logo from "../assets/Images/Logo.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
 function Create() {
 	const [email, setEmail] = useState("");
 	const [nama, setNama] = useState("");
 	const [pass, setPass] = useState("");
 	const [successMessage, setSuccessMessage] = useState("");
 	const [errorMessage, setErrorMessage] = useState("");
-
 	const Submit = (e) => {
 		e.preventDefault();
 		axios
@@ -20,7 +18,7 @@ function Create() {
 				setNama("");
 				setPass("");
 				setSuccessMessage("Create Account Successful!");
-				setErrorMessage(""); // Reset error message
+				setErrorMessage("");
 				setTimeout(() => {
 					setSuccessMessage("");
 				}, 3000);
@@ -34,7 +32,6 @@ function Create() {
 				console.log(err);
 			});
 	};
-
 	return (
 		<div className=" bg-account">
 			<div className="d-flex ">
@@ -125,5 +122,4 @@ function Create() {
 		</div>
 	);
 }
-
 export default Create;

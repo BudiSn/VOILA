@@ -7,18 +7,26 @@ import Login from "./Components/Login";
 import Create from "./Components/Create";
 import Home from "./Components/Home";
 import Cart from "./Components/Cart";
-import History from "./Components/History.jsx";
+import Order from "./Components/Order.jsx";
+import PrivateRoute from "./Components/PrivateRoute.jsx";
 
 function App() {
 	return (
 		<div>
 			<BrowserRouter>
 				<Routes>
-					<Route path="/" element={<Home />}></Route>
+					<Route
+						path="/"
+						element={
+							<PrivateRoute>
+								<Home />
+							</PrivateRoute>
+						}
+					></Route>
 					<Route path="/login" element={<Login />}></Route>
 					<Route path="/create" element={<Create />}></Route>
 					<Route path="/cart" element={<Cart />}></Route>
-					<Route path="/history" element={<History />}></Route>
+					<Route path="/order" element={<Order />}></Route>
 				</Routes>
 			</BrowserRouter>
 		</div>

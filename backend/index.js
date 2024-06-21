@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const CartModel = require("./models/Cart");
 const UserModel = require("./models/User");
-const HistoryModel = require("./models/History");
+const OrderModel = require("./models/Order");
 
 const app = express();
 app.use(cors());
@@ -59,13 +59,13 @@ app.delete("/cart", (req, res) => {
 		.then(() => res.json({ message: "Semua Item Telah Terhapus" }))
 		.catch((err) => res.status(400).json(err));
 });
-app.post("/history", async (req, res) => {
+app.post("/order", async (req, res) => {
 	try {
 		const items = await CartModel.find({});
 		if (items.length === 0)
 			return res.status(400).json({ error: "Cart is empty" });
 
-		const historyItems = items.map((item) => ({
+		const orderItems = items.map((item) => ({
 			kode: item.kode,
 			nama: item.nama,
 			harga: item.harga,
@@ -73,21 +73,21 @@ app.post("/history", async (req, res) => {
 			total: item.harga * item.quantity,
 		}));
 
-		const totalPrice = historyItems.reduce((acc, item) => acc + item.total, 0);
+		const totalPrice = orderItems.reduce((acc, item) => acc + item.total, 0);
 
-		const history = new HistoryModel({ items: historyItems, totalPrice });
-		await history.save();
+		const order = new OrderModel({ items: orderItems, totalPrice });
+		await order.save();
 
 		await CartModel.deleteMany({});
 
-		res.json({ message: "Checkout successful", history });
+		res.json({ message: "Checkout successful", order });
 	} catch (error) {
 		res.status(500).json({ error: "Internal server error" });
 	}
 });
 
-app.get("/history", (req, res) => {
-	HistoryModel.find({})
+app.get("/order", (req, res) => {
+	OrderModel.find({})
 		.then((food) => res.json(food))
 		.catch((err) => res.json(err));
 });
