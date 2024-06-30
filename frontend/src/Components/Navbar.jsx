@@ -27,31 +27,46 @@ const Navbar = () => {
 					<img src={Logo} alt="" className="w-25 h-25" />
 				</a>
 				<ul className="nav col-sm-8 col-12 col-md-8 mb-2 justify-content-center mb-md-0">
-					<li className="mx-2">
-						<a href="" className="nav-link px-2 warna">
-							Home
-						</a>
-					</li>
-					<li className="mx-2">
-						<a href="#proses" className="nav-link px-2 warna">
-							Process
-						</a>
-					</li>
-					<li className="mx-2">
-						<a href="#tasty" className="nav-link px-2 warna">
-							Tentang
-						</a>
-					</li>
-					<li className="mx-2">
-						<Link to="/cart" className="nav-link px-2 warna">
-							Keranjang
-						</Link>
-					</li>
+					{email !== "admin@gmail.com" && (
+						<li className="mx-2">
+							<a href="" className="nav-link px-2 warna">
+								Home
+							</a>
+						</li>
+					)}
+					{email !== "admin@gmail.com" && (
+						<li className="mx-2">
+							<a href="#proses" className="nav-link px-2 warna">
+								Process
+							</a>
+						</li>
+					)}
+					{email !== "admin@gmail.com" && (
+						<li className="mx-2">
+							<a href="#tasty" className="nav-link px-2 warna">
+								Tentang
+							</a>
+						</li>
+					)}
+					{email !== "admin@gmail.com" && (
+						<li className="mx-2">
+							<Link to="/cart" className="nav-link px-2 warna">
+								Keranjang
+							</Link>
+						</li>
+					)}
 					{email === "admin@gmail.com" && (
 						<li className="mx-2">
-							<Link to="/order" className="nav-link px-2 warna">
-								Orderan
-							</Link>
+							{email !== "admin@gmail.com" && (
+								<Link to="/order" className="nav-link px-2 warna">
+									Orderan
+								</Link>
+							)}
+						</li>
+					)}
+					{email === "admin@gmail.com" && (
+						<li className="mx-2">
+							<h1 className="display-2 fw-bold lh-1 mb-3">Cafe Voila</h1>
 						</li>
 					)}
 				</ul>
